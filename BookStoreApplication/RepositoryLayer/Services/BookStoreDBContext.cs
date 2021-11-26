@@ -13,6 +13,7 @@ namespace RepositoryLayer.Services
 
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Books> Books { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
