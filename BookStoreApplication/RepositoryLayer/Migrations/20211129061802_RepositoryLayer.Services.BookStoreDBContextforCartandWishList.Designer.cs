@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RepositoryLayer.Services;
 
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(BookStoreDBContext))]
-    partial class BookStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211129061802_RepositoryLayer.Services.BookStoreDBContextforCartandWishList")]
+    partial class RepositoryLayerServicesBookStoreDBContextforCartandWishList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,7 +135,7 @@ namespace RepositoryLayer.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CommonModel.Models.Wish", b =>
+            modelBuilder.Entity("CommonModel.Models.WishList", b =>
                 {
                     b.Property<int>("WishListId")
                         .ValueGeneratedOnAdd()
@@ -148,7 +150,7 @@ namespace RepositoryLayer.Migrations
 
                     b.HasKey("WishListId");
 
-                    b.ToTable("Wish");
+                    b.ToTable("WishLists");
                 });
 #pragma warning restore 612, 618
         }

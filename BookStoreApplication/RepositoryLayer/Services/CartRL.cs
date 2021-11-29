@@ -15,16 +15,16 @@ namespace RepositoryLayer.Services
         {
             this.context = context;
         }
-        public Task<int> AddBooksToCart(Cart books)
+        public Task<int> AddBooksToCart(Carts books)
         {
-            this.context.Cart.Add(books);
+            this.context.Carts.Add(books);
             var result = this.context.SaveChangesAsync();
             return result;
         }
         public List<BookCartResponse> GetAllCartBooks()
         {
             List<BookCartResponse> books = new List<BookCartResponse>();
-            var cartData = this.context.Cart.Join(this.context.Books,
+            var cartData = this.context.Carts.Join(this.context.Books,
                 Cart => Cart.BookId,
                 Book => Book.BookId,
                 (Cart, Book) =>
@@ -48,19 +48,19 @@ namespace RepositoryLayer.Services
             }
             return books;
         }
-        public Cart DeleteBookFromCart(int cartId)
+        public Carts DeleteBookFromCart(int cartId)
         {
-            var cartModel = context.Cart.Find(cartId);
+            var cartModel = context.Carts.Find(cartId);
             if (cartModel != null)
             {
-                context.Cart.Remove(cartModel);
+                context.Carts.Remove(cartModel);
                 context.SaveChanges();
             }
             return cartModel;
         }
-        public Cart UpdateCart(Cart cart)
+        public Carts UpdateCart(Carts cart)
         {
-            var result = this.context.Cart.Where<Cart>(selectedItem => selectedItem.CartId == cart.CartId).FirstOrDefault();
+            var result = this.context.Carts.Where<Carts>(selectedItem => selectedItem.CartId == cart.CartId).FirstOrDefault();
             result.SelectedBookCount = cart.SelectedBookCount;
             this.context.Update(result);
             var updateResult = this.context.SaveChanges();

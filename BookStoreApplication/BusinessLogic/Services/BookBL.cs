@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
-    public class BookBL:IBookBL
+    public class BookBL : IBookBL
     {
         private readonly IBookRL bookRL;
         public BookBL(IBookRL bookRL)

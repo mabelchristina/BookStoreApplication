@@ -8,9 +8,9 @@ namespace BusinessLogic.Interfaces
 {
     public interface ICartBL
     {
-        Task<int> AddBooksToCart(Cart books);
+        Task<int> AddBooksToCart(Carts books);
         List<BookCartResponse> GetAllCartBooks();
-        Cart DeleteBookFromCart(int cartId);
-        public Cart UpdateCart(Cart cart);
+        Carts DeleteBookFromCart(int cartId);
+        public Carts UpdateCart(Carts cart);
     }
 }

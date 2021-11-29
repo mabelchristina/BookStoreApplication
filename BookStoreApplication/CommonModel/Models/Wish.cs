@@ -6,16 +6,14 @@ using System.Text;
 
 namespace CommonModel.Models
 {
-    public class Cart
+    public class Wish
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int CartId { get; set; }
+        public int WishListId { get; set; }
         [Required]
         [ForeignKey("Books")]
         public int BookId { get; set; }
-        [Required]
-        public int SelectedBookCount { get; set; }
         [Required]
         [ForeignKey("User")]
         public int UserId { get; set; }

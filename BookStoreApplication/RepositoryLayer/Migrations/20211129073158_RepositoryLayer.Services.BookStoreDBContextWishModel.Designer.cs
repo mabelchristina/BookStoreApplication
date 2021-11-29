@@ -9,8 +9,8 @@ using RepositoryLayer.Services;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(BookStoreDBContext))]
-    [Migration("20211129020726_RepositoryLayer.Services.BookStoreDBContextCartModelContext")]
-    partial class RepositoryLayerServicesBookStoreDBContextCartModelContext
+    [Migration("20211129073158_RepositoryLayer.Services.BookStoreDBContextWishModel")]
+    partial class RepositoryLayerServicesBookStoreDBContextWishModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,7 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("CommonModel.Models.Cart", b =>
+            modelBuilder.Entity("CommonModel.Models.Carts", b =>
                 {
                     b.Property<int>("CartId")
                         .ValueGeneratedOnAdd()
@@ -71,7 +71,7 @@ namespace RepositoryLayer.Migrations
 
                     b.HasKey("CartId");
 
-                    b.ToTable("Cart");
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("CommonModel.Models.User", b =>
@@ -133,6 +133,24 @@ namespace RepositoryLayer.Migrations
                             Name = "Jane",
                             Password = "Jane@123"
                         });
+                });
+
+            modelBuilder.Entity("CommonModel.Models.Wish", b =>
+                {
+                    b.Property<int>("WishListId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WishListId");
+
+                    b.ToTable("Wish");
                 });
 #pragma warning restore 612, 618
         }

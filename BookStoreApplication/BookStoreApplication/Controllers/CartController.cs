@@ -19,7 +19,7 @@ namespace BookStoreApplication.Controllers
             this.cart = cart;
         }
         [HttpPost]
-        public async Task<ActionResult> AddBooksToCart(Cart book)
+        public async Task<ActionResult> AddBooksToCart(Carts book)
         {
             try
             {
@@ -75,12 +75,12 @@ namespace BookStoreApplication.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdateBookInCart(Cart cart)
+        public ActionResult UpdateBookInCart(Carts cart)
         {
             try
             {
-                //int userId = TokenUserId();
-                //cart.UserId = userId;
+                ////int userId = TokenUserId();
+                ////cart.UserId = userId;
                 var result = this.cart.UpdateCart(cart);
                 if (result != null)
                 {
