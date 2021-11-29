@@ -14,7 +14,7 @@ namespace RepositoryLayer.Services
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Books> Books { get; set; }
-
+        public DbSet<Cart> Cart { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(new User
